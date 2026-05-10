@@ -28,6 +28,8 @@ public class MemberController {
     private final RedisTemplate<String, Object> redisTemplate;
     @Value("${jwt.secretKeyRt}")
     private String secretKeyRt;
+    @Value("${app.version}")
+    private String version;
 
     public MemberController(MemberService memberService, JwtTokenProvider jwtTokenProvider,@Qualifier("rtdb") RedisTemplate<String, Object> redisTemplate) {
         this.memberService = memberService;
@@ -76,6 +78,11 @@ public class MemberController {
         Map<String, Object> loginInfo = new HashMap<>();
         loginInfo.put("token", token);
         return new ResponseEntity<>(loginInfo, HttpStatus.OK);
+    }
+
+    @GetMapping("/create")
+    public String version() {
+        return version;
     }
 
 }

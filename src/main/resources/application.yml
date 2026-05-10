@@ -1,3 +1,6 @@
 spring:
   profiles:
     default: prod
+
+app:
+  version: v1.0.0
