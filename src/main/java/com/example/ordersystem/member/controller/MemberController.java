@@ -80,7 +80,7 @@ public class MemberController {
         return new ResponseEntity<>(loginInfo, HttpStatus.OK);
     }
 
-    @GetMapping("/create")
+    @GetMapping("/version")
     public String version() {
         return version;
     }
