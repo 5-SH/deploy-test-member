@@ -3,4 +3,18 @@ spring:
     default: prod
 
 app:
-  version: v1.0.2
+  version: v1.0.3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+
+  endpoint:
+    prometheus:
+      enabled: true
+
+  metrics:
+    tags:
+      application: member-service
